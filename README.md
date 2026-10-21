@@ -136,6 +136,16 @@ Run the project checks from the repository directory:
 - `cargo clippy -- -D warnings`
 - `cargo test`
 
+The library and the binary must not panic on any input. `Cargo.toml` makes Clippy deny `unreachable!`, `panic!`, `.unwrap()` and `.expect(...)` in `src/`, so `cargo clippy -- -D warnings` fails when one is added:
+
+```toml
+[lints.clippy]
+unreachable = "deny"
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+```
+
 ## License
 
 MIT, see [LICENSE](LICENSE).
