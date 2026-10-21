@@ -150,7 +150,7 @@ fn parameter(
         }
         Kind::Error => Ok(value_items(current.as_deref().unwrap_or_default(), quoted)),
         Kind::Plain | Kind::Length | Kind::Prefix | Kind::Suffix => {
-            unreachable!("non-operator parameter kinds are handled above")
+            Ok(value_items(current.as_deref().unwrap_or_default(), quoted))
         }
     }
 }
