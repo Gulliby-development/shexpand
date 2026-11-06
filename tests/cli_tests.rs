@@ -75,7 +75,7 @@ fn cli_help_prints_the_exact_usage_once() {
         &["--help"],
         b"",
         0,
-        "shexpand split LINE\nshexpand braces LINE\nshexpand fields [--ifs TEXT] VALUE\nshexpand glob [--file PATH]... PATTERN...\nshexpand expand [--var NAME=VALUE]... [--ifs TEXT] [--file PATH]... LINE [ARG...]\nshexpand quote [--style single|double] [--always] TEXT...\nshexpand lint LINE\n",
+        "shexpand split LINE\nshexpand braces LINE\nshexpand fields [--ifs TEXT] VALUE\nshexpand glob [--file PATH]... PATTERN...\nshexpand expand [--var NAME=VALUE]... [--ifs TEXT] [--file PATH]... LINE [ARG...]\nshexpand quote [--style single|double] [--always] [--lines] TEXT...\nshexpand lint LINE\n",
         0,
     );
 }
@@ -352,7 +352,7 @@ fn cli_quote_requires_text() {
     assert_error(
         &["quote"],
         b"",
-        "shexpand: usage: shexpand quote [--style single|double] [--always] TEXT...\n",
+        "shexpand: usage: shexpand quote [--style single|double] [--always] [--lines] TEXT...\n",
     );
 }
 
