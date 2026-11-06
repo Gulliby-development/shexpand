@@ -184,7 +184,7 @@ fn assert_quote_error(args: &[&str], expected: &str) {
 fn quote_adapter_exposes_the_exact_usage() {
     assert_eq!(
         USAGE,
-        "shexpand quote [--style single|double] [--always] TEXT..."
+        "shexpand quote [--style single|double] [--always] [--lines] TEXT..."
     );
 }
 
@@ -230,7 +230,7 @@ fn quote_adapter_preserves_unicode_and_crlf_payloads() {
 fn quote_adapter_reports_usage_for_missing_operands_without_io() {
     assert_quote_error(
         &[],
-        "usage: shexpand quote [--style single|double] [--always] TEXT...",
+        "usage: shexpand quote [--style single|double] [--always] [--lines] TEXT...",
     );
 }
 

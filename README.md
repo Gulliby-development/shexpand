@@ -39,7 +39,7 @@ shexpand braces LINE
 shexpand fields [--ifs TEXT] VALUE
 shexpand glob [--file PATH]... PATTERN...
 shexpand expand [--var NAME=VALUE]... [--ifs TEXT] [--file PATH]... LINE [ARG...]
-shexpand quote [--style single|double] [--always] TEXT...
+shexpand quote [--style single|double] [--always] [--lines] TEXT...
 shexpand lint LINE
 ```
 
@@ -119,7 +119,7 @@ made for arbitrary payload text.
 - `glob` matches patterns against the virtual paths supplied by `--file`.
 - `expand` applies brace, tilde, parameter, field-splitting, and pathname
   expansion using supplied variables, positional arguments, and virtual paths.
-- `quote` produces single- or double-quoted shell text for each argument.
+- `quote` produces single- or double-quoted shell text for each argument; with `--lines` each quoted argument is written on its own line.
 - `lint` reports selected risky parameter expansions and their source columns.
 
 ## Exit codes

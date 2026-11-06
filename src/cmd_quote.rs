@@ -4,7 +4,7 @@ use crate::options::{Spec, parse};
 use crate::quoter::quote;
 use crate::text::show;
 
-pub const USAGE: &str = "shexpand quote [--style single|double] [--always] TEXT...";
+pub const USAGE: &str = "shexpand quote [--style single|double] [--always] [--lines] TEXT...";
 
 pub fn run(args: &[String], io: &dyn Io) -> Result<i32, ShError> {
     let parsed = parse(
@@ -16,6 +16,10 @@ pub fn run(args: &[String], io: &dyn Io) -> Result<i32, ShError> {
             },
             Spec {
                 name: "--always",
+                flag: true,
+            },
+            Spec {
+                name: "--lines",
                 flag: true,
             },
         ],
@@ -45,14 +49,23 @@ pub fn run(args: &[String], io: &dyn Io) -> Result<i32, ShError> {
         .values
         .get("--always")
         .is_some_and(|values| !values.is_empty());
+    let lines = parsed
+        .values
+        .get("--lines")
+        .is_some_and(|values| !values.is_empty());
     let mut output = String::new();
     for (index, text) in parsed.args.iter().enumerate() {
-        if index > 0 {
+        if index > 0 && !lines {
             output.push(' ');
         }
         output.push_str(&quote(text, double, always));
+        if lines {
+            output.push('\n');
+        }
     }
-    output.push('\n');
+    if !lines {
+        output.push('\n');
+    }
     io.out(&output);
 
     Ok(0)

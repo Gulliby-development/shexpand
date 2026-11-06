@@ -67,7 +67,7 @@ fn readme_usage_and_examples_match_the_public_cli() {
     let text_blocks = fenced_blocks(README, "text");
     assert_eq!(text_blocks.len(), 4);
 
-    let expected_usage = "shexpand split LINE\nshexpand braces LINE\nshexpand fields [--ifs TEXT] VALUE\nshexpand glob [--file PATH]... PATTERN...\nshexpand expand [--var NAME=VALUE]... [--ifs TEXT] [--file PATH]... LINE [ARG...]\nshexpand quote [--style single|double] [--always] TEXT...\nshexpand lint LINE\n";
+    let expected_usage = "shexpand split LINE\nshexpand braces LINE\nshexpand fields [--ifs TEXT] VALUE\nshexpand glob [--file PATH]... PATTERN...\nshexpand expand [--var NAME=VALUE]... [--ifs TEXT] [--file PATH]... LINE [ARG...]\nshexpand quote [--style single|double] [--always] [--lines] TEXT...\nshexpand lint LINE\n";
     assert_eq!(text_blocks[0], expected_usage);
     let (status, stdout, stderr) = run_cli(&["--help"]);
     assert_eq!(status, 0);

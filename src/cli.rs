@@ -10,7 +10,7 @@ use crate::io::Io;
 use crate::text::show;
 
 /// Usage lines printed by the singleton `--help` command.
-pub const USAGE: &str = "shexpand split LINE\nshexpand braces LINE\nshexpand fields [--ifs TEXT] VALUE\nshexpand glob [--file PATH]... PATTERN...\nshexpand expand [--var NAME=VALUE]... [--ifs TEXT] [--file PATH]... LINE [ARG...]\nshexpand quote [--style single|double] [--always] TEXT...\nshexpand lint LINE\n";
+pub const USAGE: &str = "shexpand split LINE\nshexpand braces LINE\nshexpand fields [--ifs TEXT] VALUE\nshexpand glob [--file PATH]... PATTERN...\nshexpand expand [--var NAME=VALUE]... [--ifs TEXT] [--file PATH]... LINE [ARG...]\nshexpand quote [--style single|double] [--always] [--lines] TEXT...\nshexpand lint LINE\n";
 
 /// Dispatch a command and present adapter errors in the common CLI format.
 pub fn run(argv: &[String], io: &dyn Io) -> i32 {

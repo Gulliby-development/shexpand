@@ -404,7 +404,7 @@ fn quote_command_reports_exact_arity_usage() {
     assert_adapter_error(
         &io,
         result,
-        "usage: shexpand quote [--style single|double] [--always] TEXT...",
+        "usage: shexpand quote [--style single|double] [--always] [--lines] TEXT...",
     );
 }
 
@@ -424,7 +424,7 @@ fn quote_command_reports_missing_text_error() {
     assert_adapter_error(
         &io,
         result,
-        "usage: shexpand quote [--style single|double] [--always] TEXT...",
+        "usage: shexpand quote [--style single|double] [--always] [--lines] TEXT...",
     );
 }
 
